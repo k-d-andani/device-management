@@ -1,0 +1,13 @@
+<div class="d-grid">
+  <ng-container
+    *ngIf="searchedDevices.length > 0; then searchedDevicesTemplate; else allDevicesTemplate"
+  >
+  </ng-container>
+</div>
+
+<ng-template #searchedDevicesTemplate>
+  <app-device-list [devices]="searchedDevices"></app-device-list>
+</ng-template>
+<ng-template #allDevicesTemplate>
+  <app-device-list [devices]="devices"></app-device-list>
+</ng-template>

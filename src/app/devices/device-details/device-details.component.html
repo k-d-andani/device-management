@@ -1,0 +1,22 @@
+<div class="d-grid gap-3 element-size">
+  <div>
+    <app-device-list
+      [devices]="(relatedDevice$ | async) || []"
+    ></app-device-list>
+  </div>
+  <div>
+    <div *ngIf="currentDevice$ | async; let device;">
+      <div class="card">
+        <div class="card-header">
+          Details: {{device.name}}
+        </div>
+        <div class="card-body">
+          <p class="card-text">Status: {{device.status}}</p>
+          <p class="card-text">Temperature: {{device.temprature}}</p>
+          <p class="card-text">Usage:</p>
+          <img src="assets/barchart_icon.png" alt="Chart" height="200" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

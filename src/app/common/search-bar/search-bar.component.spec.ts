@@ -1,0 +1,33 @@
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { RouterTestingModule } from "@angular/router/testing";
+import { NgxsModule } from "@ngxs/store";
+import { DeviceState } from "src/app/store/device/device.state";
+
+import { SearchBarComponent } from "./search-bar.component";
+
+describe("SearchBarComponent", () => {
+  let component: SearchBarComponent;
+  let fixture: ComponentFixture<SearchBarComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [SearchBarComponent],
+      imports: [
+        HttpClientTestingModule,
+        RouterTestingModule,
+        NgxsModule.forRoot([DeviceState]),
+      ],
+    }).compileComponents();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(SearchBarComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it("should create", () => {
+    expect(component).toBeTruthy();
+  });
+});
